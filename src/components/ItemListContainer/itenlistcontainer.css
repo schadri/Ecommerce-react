@@ -1,0 +1,24 @@
+h2{
+    text-align: center;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25%;
+  }
+  
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+
+  }
+  
