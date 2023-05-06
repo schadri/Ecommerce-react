@@ -1,24 +1,4 @@
-.back-button{
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 15px;
+#back {
+    background-color: rgb(80, 207, 250);
+    border: #333333;
 }
-
-.back-button {
-    text-decoration: none;
-    color: white;
-   
-    
-}
-.back-button:hover {
-    text-decoration: none;
-    color: white;
-    
-}
-
-.back-icon {
-    margin-bottom: 4px;
-    margin-right: 5px;
-    margin-left: 0px;
-}
-

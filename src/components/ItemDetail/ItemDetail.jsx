@@ -4,6 +4,7 @@ import { Card, Button } from 'react-bootstrap'
 import { ItemCount } from '../ItemCount/ItemCount'
 import {CartContext} from '../context/CartContext'
 import Swal from "sweetalert2";
+import "./ItemDetail.css"
 
 export const ItemDetail = ({ id, name, description, price, image, category, stock }) => {
   // Pasamos mediante props, cada propiedad de nuestro productos(objetos) y lo colocamos por props en nuestro return
@@ -45,6 +46,7 @@ export const ItemDetail = ({ id, name, description, price, image, category, stoc
 
   return (
     <div className='item'>
+      <Button onClick={volverHaciaAtras} className='btn btn-sucess' id='back'>Volver atras</Button>
       <Card style={{ width: '25rem' }}>
         <Card.Img variant="top" src={image} />
         <Card.Body>
@@ -54,9 +56,9 @@ export const ItemDetail = ({ id, name, description, price, image, category, stoc
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea error totam quibusdam doloribus, alias aperiam exercitationem laboriosam illum similique eos, delectus vitae odit maxime, repellendus iusto quisquam placeat blanditiis. Cupiditate! </p>
           <Card.Title>Categoria: {category}</Card.Title>
           <ItemCount max={stock} modify={setCounter} cantidad={counter}/>
-          <Button onClick={sumarAlCarrito}>Agregar al carrito</Button>
+          <Button onClick={sumarAlCarrito} id='back'>Agregar al carrito</Button>
         </Card.Body>
-        <Button onClick={volverHaciaAtras} className='btn btn-sucess'>Volver atras</Button>
+        
       </Card>
     </div>
   )
