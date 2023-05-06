@@ -1,55 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import { pedirProductos } from '../../helpers/pedirProductos';
-import { ItemList } from '../itemList/itemList';
-import './itenlistcontainer.css';
-import {FaSpinner} from "react-icons/fa"
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+// import { pedirProductos } from "../../helpers/pedirProductos";
+import { ItemList } from "../itemList/itemList";
+import "./itenlistcontainer.css";
+import { FaSpinner } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import { getFirestore } from "../../firebase/config";
 
-export const ItemListContainer = ({greating}) => {
+export const ItemListContainer = () => {
+  const [items, setItems] = useState([]);
 
-  const [items, setItems] = useState([])
+  const [loading, setLoading] = useState(false);
 
-  const [loading, setLoading] = useState(false)
+  const { categoryId } = useParams();
 
-  //const param = useParams()
-
-
-  const {categoryId} = useParams()
-
-  useEffect(() =>{
-// iniciamos el efecto montaje, con un loading en "true"
-    setLoading(true)
-    pedirProductos()
-      .then((res) =>{
-        // Imprimos la respuesta y la guardamos en el hook
-        if(categoryId){
-          setItems(res.filter(prod => prod.category === categoryId) )
-        } else {
-          setItems(res)
-        }
-        
-        // console.log(res)
-      })
-      // Consologueamos errores
-      .catch((error) => console.log(error))
-      .finally(() =>{setLoading(false)})
-  }, [categoryId])
-
+  useEffect(() => {
+     setLoading(true)
+    const db = getFirestore();
+    
+    const productos = categoryId
+                      ? db.collection("productos").where("category", "==", categoryId)
+                      : db.collection("productos")
+    productos.get()
+        .then((res) => {
+          const newItem = res.docs.map((doc)=>{
+            return {id: doc.id, ...doc.data()}
+          })
+          console.table(newItem)
+          setItems(newItem)
+        })
+        .catch((error) => console.log(error))
+        .finally(() => {
+          setLoading(false)
+        })
+                        }, [categoryId]);
 
 
-
-  return (
+   return (
     <>
-      {
-        loading
-        ? 
-        <div className="container">
-        <div className="spinner">
-          <FaSpinner />
+      {loading ? (
+        <div className='container'>
+          <div className='spinner'>
+            <FaSpinner />
+          </div>
         </div>
-      </div>
-      
-        :<ItemList productos={items}/>
-      }
+      ) : (
+        <ItemList productos={items} />
+      )}
     </>
-  )}
+  );
+};

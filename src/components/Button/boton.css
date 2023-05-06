@@ -1,0 +1,30 @@
+.test{
+ 
+   color: floralwhite;
+   background-color: #333333;
+    
+  }
+  .item_title{
+ 
+   color: floralwhite;
+   background-color: #333333;
+    
+  }
+
+  .link_category_item{
+   text-decoration: none;
+   
+   
+  }
+  .link_category_item button{
+  color: #fff;
+  
+  }
+  .link_category_item :hover{
+   background-color: #ffffff00;
+   color: #838383;
+  }
+
+.item-menu{
+   background-color: #333333;
+   }
