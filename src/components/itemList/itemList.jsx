@@ -5,7 +5,7 @@ import { Barra } from "../Button/button";
 export const ItemList = ({ productos = [Item] }) => {
   return (
     <div className='container'>
-      <h3>Nuestros productos</h3>
+      <h3 id="NP">Nuestros productos</h3>
       <div>
         <Barra />
       </div>

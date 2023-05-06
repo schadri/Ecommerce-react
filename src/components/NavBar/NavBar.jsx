@@ -12,8 +12,9 @@ export const NavBar = () => {
   <ul>
   <li><div className="icon_main"><FaRegSnowflake/></div></li>
   <li><Link to="/">Home</Link></li>
-  <li><Link to="/poke">Poke</Link></li>
-  <li><Link to="/counter">Count</Link></li>
+  <li><Link to="#">Login</Link></li>
+  {/* <li><Link to="/poke">Poke</Link></li>
+  <li><Link to="/counter">Count</Link></li> */}
   </ul>
 <div className="carrito">
  <li><Link to= '/cart' ><CartWidget/></Link></li>

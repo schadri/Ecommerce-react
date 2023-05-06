@@ -8,8 +8,6 @@ import { Checkout } from "./components/Checkout/Checkout.jsx";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 
 
-
-
 import {
   BrowserRouter as Router,
   Routes,
@@ -31,9 +29,7 @@ function App() {
       <div className='App'>
         <Router>
           <NavBar />
-        
-
-          <Routes>
+        <Routes>
             <Route path='/' element={<ItemListContainer />} />
             <Route path='/productos/:categoryId' element={<ItemListContainer />} />
             <Route path='/detail/:itemId' element={<ItemDetailContainer />} />

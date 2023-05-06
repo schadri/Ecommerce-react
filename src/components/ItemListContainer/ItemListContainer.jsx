@@ -5,6 +5,7 @@ import "./itenlistcontainer.css";
 import { FaSpinner } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { getFirestore } from "../../firebase/config";
+import {Ban} from "../Ban/Ban"
 
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -37,6 +38,7 @@ export const ItemListContainer = () => {
 
    return (
     <>
+    <Ban />
       {loading ? (
         <div className='container'>
           <div className='spinner'>
