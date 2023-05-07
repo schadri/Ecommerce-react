@@ -4,8 +4,8 @@ import { ItemList } from "../itemList/itemList";
 import "./itenlistcontainer.css";
 import { FaSpinner } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-import { getFirestore } from "../../firebase/config";
-import {Ban} from "../Ban/Ban"
+import { Ban } from "../Ban/Ban"
+import { db } from "../../firebase/config";
 
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -15,30 +15,28 @@ export const ItemListContainer = () => {
   const { categoryId } = useParams();
 
   useEffect(() => {
-     setLoading(true)
-    const db = getFirestore();
-    
+    setLoading(true)
+
     const productos = categoryId
-                      ? db.collection("productos").where("category", "==", categoryId)
-                      : db.collection("productos")
+      ? db.collection("productos").where("category", "==", categoryId)
+      : db.collection("productos")
     productos.get()
-        .then((res) => {
-          const newItem = res.docs.map((doc)=>{
-            return {id: doc.id, ...doc.data()}
-          })
-          console.table(newItem)
-          setItems(newItem)
+      .then((res) => {
+        const newItem = res.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() }
         })
-        .catch((error) => console.log(error))
-        .finally(() => {
-          setLoading(false)
-        })
-                        }, [categoryId]);
+        setItems(newItem)
+      })
+      .catch((error) => console.error(error))
+      .finally(() => {
+        setLoading(false)
+      })
+  }, [categoryId]);
 
 
-   return (
+  return (
     <>
-    <Ban />
+      <Ban />
       {loading ? (
         <div className='container'>
           <div className='spinner'>

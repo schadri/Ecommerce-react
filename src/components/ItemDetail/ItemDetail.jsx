@@ -9,7 +9,6 @@ import "./ItemDetail.css"
 export const ItemDetail = ({ id, name, description, price, image, category, stock }) => {
   // Pasamos mediante props, cada propiedad de nuestro productos(objetos) y lo colocamos por props en nuestro return
 
-
   const navigate = useNavigate()
 
   const volverHaciaAtras = () =>{
@@ -18,8 +17,6 @@ export const ItemDetail = ({ id, name, description, price, image, category, stoc
   // funcionalidades del contexto
 
   const {addToCart} = useContext(CartContext)
-
-
 
   const [counter, setCounter] = useState(0)
 
@@ -32,7 +29,6 @@ export const ItemDetail = ({ id, name, description, price, image, category, stoc
           category,
           counter
         }
-        console.log(newItem)
         addToCart(newItem)
         Swal.fire({
           icon: "success",
@@ -56,7 +52,7 @@ export const ItemDetail = ({ id, name, description, price, image, category, stoc
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea error totam quibusdam doloribus, alias aperiam exercitationem laboriosam illum similique eos, delectus vitae odit maxime, repellendus iusto quisquam placeat blanditiis. Cupiditate! </p>
           <Card.Title>Categoria: {category}</Card.Title>
           <ItemCount max={stock} modify={setCounter} cantidad={counter}/>
-          <Button onClick={sumarAlCarrito} id='back'>Agregar al carrito</Button>
+          <Button onClick={sumarAlCarrito} disabled={counter===0} id='back'>Agregar al carrito</Button>
         </Card.Body>
         
       </Card>

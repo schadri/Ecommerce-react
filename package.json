@@ -9,7 +9,7 @@
     "boostrap": "^2.0.0",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
-    "firebase": "^8.10.0",
+    "firebase": "^9.21.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",

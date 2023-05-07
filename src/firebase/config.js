@@ -1,19 +1,37 @@
-import firebase from "firebase/app";
-import "firebase/firestore"
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
+import { 
+  GoogleAuthProvider, 
+  getAuth, 
+  signInWithEmailAndPassword, 
+  signInWithPopup, 
+  signOut } from 'firebase/auth'
 
+const app = firebase.initializeApp({
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
+})
 
+export const db = firebase.firestore();
+export const auth = getAuth(app)
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBdgSMk-xm-7mxKqVBRrWFjcTEuSUkWqC4",
-  authDomain: "react-app-9771a.firebaseapp.com",
-  projectId: "react-app-9771a",
-  storageBucket: "react-app-9771a.appspot.com",
-  messagingSenderId: "602677960620",
-  appId: "1:602677960620:web:85d2cc300656bf53512409"
-};
+export const getActualDate = () => {
+  return firebase.firestore.Timestamp.fromDate(new Date());
+}
 
-const app = firebase.initializeApp(firebaseConfig)
+export const signInWithEmailAndPasswordFirebase = async (email, password) => {
+  return await signInWithEmailAndPassword(auth, email, password);
+}
 
-export const getFirestore = () => {
-  return firebase.firestore(app)
+export const LoginWithGooglePopout = async () => {
+  const provider = new GoogleAuthProvider();
+  return await signInWithPopup(auth, provider);
+}
+
+export const logout = async () => {
+  return await signOut(auth);
 }

@@ -1,27 +1,20 @@
 import { useContext, useState } from "react";
-import React from "react";
+import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import "./checkout.css";
 import { CartContext } from "../context/CartContext";
-import firebase from "firebase";
-import "firebase/firestore";
-import { getFirestore } from "../../firebase/config";
-import Swal from "sweetalert2";
+import { db, getActualDate } from "../../firebase/config";
+import "./checkout.css";
 
 export const Checkout = () => {
   const { carrito, precioTotal, vaciarCarrito } = useContext(CartContext);
-
   const [email, setEmail] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [telefono, setTelefono] = useState("");
   const handleSumbit = (e) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Nombre:", nombre);
-    console.log("Apellido:", apellido);
-    console.log("Telefono:", telefono);
+
     const orden = {
       buyner: {
         email,
@@ -31,11 +24,8 @@ export const Checkout = () => {
       },
       item: carrito,
       total_price: precioTotal(),
-      data: firebase.firestore.Timestamp.fromDate(new Date()),
+      data: getActualDate(),
     };
-
-    console.log(orden);
-    const db = getFirestore();
 
     const ordenes = db.collection("ordenes");
 
@@ -49,7 +39,6 @@ export const Checkout = () => {
         },
       }).finally(() => {
         console.log("exito");
-        
       });
     });
     carrito.forEach((item) => {
