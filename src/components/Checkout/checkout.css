@@ -6,16 +6,6 @@ form {
     height: 60vh;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(253, 253, 253);
-    color: white;
-    text-align: center;
-}
-
 .action-button {
     width: 200px;
 }

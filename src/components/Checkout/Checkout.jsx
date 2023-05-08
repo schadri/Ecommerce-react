@@ -111,7 +111,7 @@ export const Checkout = () => {
               />
             </div>
 
-            <div class="footer">
+            <div class="d-flex justify-content-center my-5">
               <button type='submit' className='btn btn-success action-button'>
                 Finalizar
               </button>

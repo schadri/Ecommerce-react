@@ -34,7 +34,7 @@ export const CartScreen = () => {
             <tbody>
               {carrito.map((prod, i) => (
                 <tr>
-                  <th scope="row">{i+1}</th>
+                  <th scope="row">{i + 1}</th>
                   <td>{prod.description}</td>
                   <td>${prod.price}</td>
                   <td>{prod.counter}</td>
@@ -49,13 +49,14 @@ export const CartScreen = () => {
           </table>
           <strong>Precio total: $ {precioTotal()}</strong>
           <hr />
-          <Button className='btn btn-danger' onClick={vaciarCarrito} >
-            {" "}
-
-            Vaciar Carrito{" "}
-          </Button>
-          <Link to='/checkout'><Button className='btn btn-success'>Finalizar Compra</Button></Link>
-
+          <div className="d-flex justify-content-center">
+            <Button className='btn btn-danger action-button' onClick={vaciarCarrito} >
+              Vaciar Carrito
+            </Button>
+            <Link to='/checkout'>
+              <Button className='btn btn-success action-button'>Finalizar Compra</Button>
+            </Link>
+          </div>
         </>
       )
       }

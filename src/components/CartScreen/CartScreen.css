@@ -1,3 +1,7 @@
 .listado {
     display: flex;
 }
+
+.action-button {
+    width: 200px;
+}
