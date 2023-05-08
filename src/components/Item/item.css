@@ -1,33 +1,33 @@
-.item{
-    margin: 5px;  
-    
+.item {
+    margin: 5px;
 }
 
 #masDetalles {
     background-color: rgb(80, 207, 250);
     border: #333333;
-   
 }
 
-
-.category{
+.category {
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    
-    
 }
+
 .category:hover::before {
-        content: attr(title);
-        position: absolute;
-        margin-top: -40px;
-        background-color: #333333;
-        color: white;
-        padding: 5px;
-        border-radius: 5px;
-        white-space: nowrap;
-      }
-      
-      .contenedor:hover  {-webkit-transform:scale(1.3);transform:scale(1.3);}
-      .contenedor {overflow:hidden;}
+    content: attr(title);
+    background-color: #333333;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.contenedor:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+.contenedor {
+    overflow: hidden;
+}

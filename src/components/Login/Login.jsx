@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import "./login.css"
 import { FcGoogle } from "react-icons/fc";
@@ -14,109 +14,109 @@ export const Login = () => {
     loginData,
   } = useContext(AuthContext);
 
+  useEffect(() => {
+    if (loginData) {
+      window.location.replace('/')
+    }
+  }, [loginData])
+
   return (
     <div>
-      {loginData ? (
+      {!loginData && (
         <div>
-          <p> ya estas logueado </p>
-        </div>
-      ) : (
-        <div>
-          <section class='h-100'>
-            <div class='container h-100'>
-              <div class='row justify-content-sm-center h-100'>
-                <div class='col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9'>
+          <section className='h-100'>
+            <div className='container h-100'>
+              <div className='row justify-content-sm-center h-100'>
+                <div className='col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9'>
                   <div id="bordeado">
-                  <div class='text-center my-5' id="Icon-Logo">
-                  <FaRegSnowflake/>
+                    <div className='text-center my-5' id="Icon-Logo">
+                      <FaRegSnowflake />
+                    </div>
                   </div>
-                  </div>
-                  <div class='card shadow-lg'>
-                    <div class='card-body p-5'>
-                      <h1 class='fs-4 card-title fw-bold mb-4'>Login</h1>
+                  <div className='card shadow-lg'>
+                    <div className='card-body p-5'>
+                      <h1 className='fs-4 card-title fw-bold mb-4'>Login</h1>
 
                       <form
                         method='POST'
-                        class='needs-validation'
-                        novalidate=''
-                        autocomplete='off'
+                        className='needs-validation'
                         onSubmit={handleEmailLogin}
                       >
-                        <div class='mb-3'>
-                          <label class='mb-2 text-muted' for='email'>
+                        <div className='mb-3'>
+                          <label className='mb-2 text-muted' htmlFor='email'>
                             E-Mail Address
                           </label>
                           <input
                             id='email'
                             type='email'
-                            class='form-control'
+                            className='form-control'
                             name='email'
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
-                            autofocus
+
                           />
-                          <div class='invalid-feedback'>Email is invalid</div>
+                          <div className='invalid-feedback'>Email is invalid</div>
                         </div>
 
-                        <div class='mb-3'>
-                          <div class='mb-2 w-100'>
-                            <label class='text-muted' for='password'>
+                        <div className='mb-3'>
+                          <div className='mb-2 w-100'>
+                            <label className='text-muted' htmlFor='password'>
                               Password
                             </label>
-                            <a href='forgot.html' class='float-end'>
+                            <a href='forgot.html' className='float-end'>
                               Forgot Password?
                             </a>
                           </div>
                           <input
                             id='password'
                             type='password'
-                            class='form-control'
+                            className='form-control'
                             name='password'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
                           />
-                          <div class='invalid-feedback'>
+                          <div className='invalid-feedback'>
                             Password is required
                           </div>
                         </div>
 
-                        <div class='d-flex align-items-center'>
-                          <div class='form-check'>
+                        <div className='d-flex align-items-center'>
+                          <div className='form-check'>
                             <input
                               type='checkbox'
                               name='remember'
                               id='remember'
-                              class='form-check-input'
+                              className='form-check-input'
                             />
-                            <label for='remember' class='form-check-label'>
+                            <label htmlFor='remember' className='form-check-label'>
                               Remember Me
                             </label>
                           </div>
-                          <button type='submit' class='btn btn-primary ms-auto'>
+                          <button type='submit' className='btn btn-primary ms-auto'>
                             Login
                           </button>
                         </div>
                       </form>
                     </div>
-                    <div class='card-footer py-3 border-0'>
-                      <div class='text-center'>
+                    <div className='card-footer py-3 border-0'>
+                      <div className='text-center'>
                         Don't have an account?{" "}
-                        <a href='register.html' class='text-dark'>
+                        <a href='register.html' className='text-dark'>
                           Create One
                         </a>
                       </div>
                     </div>
-                    <div class='card-footer py-3 border-0'>
-                      <div class='text-center'>
-                      <p>Or Login With Google</p>
-                        <button onClick={LoginWithGoogle} id="google-icon"><FcGoogle/></button>
+                    <div className='card-footer py-3 border-0'>
+                      <div className='text-center'>
+                        <p>Or Login With Google</p>
+                        <button onClick={LoginWithGoogle} id="google-icon"><FcGoogle /></button>
 
                       </div>
                     </div>
                   </div>
-                  <div class='text-center mt-5 text-muted'>
+                  <div className='text-center mt-5 text-muted'>
                     Copyright &copy; 2023 &mdash; Winter Store
                   </div>
                 </div>

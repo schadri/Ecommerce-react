@@ -1,15 +1,10 @@
 .carrito{
     font-size: 30px;
     line-height: 10px;
-    position: absolute;
-    right: 40px;
-    /* float:left; */
-    /* margin-left: %; */
     list-style-type: none;
    
 }
 span {
-    
     font-size: small;
     margin-left: 5px;
 }

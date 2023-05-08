@@ -19,40 +19,46 @@ export const CartScreen = () => {
         </>
       ) : (
         <>
-        <h3>Resumen de compras</h3>
-              <hr />
-          {carrito.map((prod) => (
-            <>
-              <div className='listado'>
-                <p>Producto: {prod.description}</p>
-                <p>${prod.price}</p>
-                <p>cantidad: {prod.counter}</p>
-                <br></br>
-              </div>
-              
-              <Button onClick={() => removerItem(prod.id)}>
-                <BsFillTrashFill />
-              </Button>
-              
-              
-              
-            </>
-            
-          ))}
-          
+          <h3>Resumen de compras</h3>
+          <hr />
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              {carrito.map((prod, i) => (
+                <tr>
+                  <th scope="row">{i+1}</th>
+                  <td>{prod.description}</td>
+                  <td>${prod.price}</td>
+                  <td>{prod.counter}</td>
+                  <td>
+                    <Button onClick={() => removerItem(prod.id)}>
+                      <BsFillTrashFill />
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <strong>Precio total: $ {precioTotal()}</strong>
+          <hr />
+          <Button className='btn btn-danger' onClick={vaciarCarrito} >
+            {" "}
 
-              <hr />
-              <strong>Precio total: $ {precioTotal()}</strong>
-              <hr />
-              <Button className='btn btn-danger' onClick={vaciarCarrito} >
-                {" "}
-                
-                Vaciar Carrito{" "}
-              </Button>
-              <Link to='/checkout'><Button className='btn btn-success'>Finalizar Compra</Button></Link>
-              
+            Vaciar Carrito{" "}
+          </Button>
+          <Link to='/checkout'><Button className='btn btn-success'>Finalizar Compra</Button></Link>
+
         </>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 };

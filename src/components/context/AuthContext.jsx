@@ -1,7 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import {
   signInWithEmailAndPasswordFirebase,
-  LoginWithGooglePopout
+  LoginWithGooglePopout,
+  signOut
 } from "../../firebase/config";
 
 
@@ -11,11 +12,23 @@ export const AuthProvider = ({ children }) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginData, setLoginData] = useState();
+  const [loginData, setLoginData] = useState(null);
+
+  useEffect(() => {
+    if(loginData){
+      localStorage.setItem('login-data', JSON.stringify(loginData))
+    }
+  }, [loginData])
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('login-data'));
+    if (data) {
+      setLoginData(data)
+    }
+  }, [])
 
   const handleEmailLogin = async (event) => {
     event.preventDefault();
-
     try {
       const res = await signInWithEmailAndPasswordFirebase(email, password);
       setLoginData(res);
@@ -29,6 +42,11 @@ export const AuthProvider = ({ children }) => {
     setLoginData(res);
   }
 
+  const logout = () => {
+    localStorage.removeItem('login-data')
+    signOut();
+    setLoginData(null);
+  }
 
   return (
     <AuthContext.Provider value={{
@@ -39,6 +57,7 @@ export const AuthProvider = ({ children }) => {
       setPassword,
       handleEmailLogin,
       LoginWithGoogle,
+      logout
     }}>
       {children}
     </AuthContext.Provider>

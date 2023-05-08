@@ -5,7 +5,8 @@ import {
   getAuth, 
   signInWithEmailAndPassword, 
   signInWithPopup, 
-  signOut } from 'firebase/auth'
+  signOut as signOutFirebase
+} from 'firebase/auth'
 
 const app = firebase.initializeApp({
   apiKey: process.env.REACT_APP_apiKey,
@@ -32,6 +33,11 @@ export const LoginWithGooglePopout = async () => {
   return await signInWithPopup(auth, provider);
 }
 
-export const logout = async () => {
-  return await signOut(auth);
+export const signOut = async () => {
+  try {
+    const res = await auth.signOut();
+    console.log(res);
+  } catch (error) {
+    console.error(error);
+  }
 }
