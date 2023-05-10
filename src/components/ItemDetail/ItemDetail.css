@@ -12,9 +12,8 @@
     .item-info{
         flex-wrap: wrap;
     }
-    .item img {
-        width: auto;
-        height: auto;
+    .photo-detail {
+        width: 40vh;
     }
     
   }

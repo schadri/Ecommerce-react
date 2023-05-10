@@ -18,6 +18,7 @@ import { CartScreen } from "./components/CartScreen/CartScreen.jsx";
 import { AuthProvider } from "./components/context/AuthContext.jsx";
 import { Login } from "./components/Login/Login.jsx";
 import { Register } from "./components/Register/Register.jsx";
+import { Forgot } from "./components/Account/Forgot.jsx";
 
 
 const dinamicRoutes = [
@@ -28,6 +29,7 @@ const dinamicRoutes = [
   { path: '/poke', element: <Poke /> },
   { path: '/login', element: <Login /> },
   { path: '/register', element: <Register /> },
+  { path: '/forgot', element: <Forgot /> },
   { path: '/checkout', element: <Checkout /> },
   { path: '/cart', element: <CartScreen /> },
   { path: '*', element: <Navigate to='/' /> },

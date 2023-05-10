@@ -58,7 +58,7 @@ export const Register = () => {
                   </div>
                   <div className='card shadow-lg'>
                     <div className='card-body p-5'>
-                      <h1 className='fs-4 card-title fw-bold mb-4'>Register</h1>
+                      <h1 className='fs-4 card-title fw-bold mb-4'>Registrarse</h1>
 
                       <form
                         method='POST'
@@ -67,7 +67,7 @@ export const Register = () => {
                       >
                         <div className='mb-3'>
                           <label className='mb-2 text-muted' htmlFor='email'>
-                            E-Mail Address
+                            Correo Electronico 
                           </label>
                           <input
                             id='email'
@@ -85,7 +85,7 @@ export const Register = () => {
                         <div className='mb-3'>
                           <div className='mb-2 w-100'>
                             <label className='text-muted' htmlFor='password'>
-                              Password
+                              Contraseña
                             </label>
                           </div>
                           <input
@@ -98,27 +98,27 @@ export const Register = () => {
                             required
                           />
                           <div className='invalid-feedback'>
-                            Password is required
+                            Contraseña requerida
                           </div>
                         </div>
 
                         <div className='d-flex align-items-center'>
                           <button type='submit' className='btn btn-primary ms-auto'>
-                            Register
+                            Registrarse
                           </button>
                         </div>
                       </form>
                     </div>
                     <div className='card-footer py-3 border-0'>
                       <div className='text-center'>
-                        Have an account{" "}
+                        Ya tengo una cuenta:{" "}
                         <Link to='/login' className='text-dark'>
-                          Login
+                          Ingresar
                         </Link>
                       </div></div>
                     <div className='card-footer py-3 border-0'>
                       <div className='text-center'>
-                        <p>Or Login With Google</p>
+                        <p>O ingresar con Google</p>
                         <button onClick={LoginWithGoogle} id="google-icon"><FcGoogle /></button>
 
                       </div>

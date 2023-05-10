@@ -27,7 +27,8 @@ export const Barra = () => {
           <DropdownItem divider />
           {categories.map((category, index) => {
             return <div key={index} >
-              <Link to={category.link} className='link_category_item'><DropdownItem >{category.name}</DropdownItem></Link>
+              <Link to={category.link} className='link_category_item'>
+                <DropdownItem >{category.name}</DropdownItem></Link>
               <DropdownItem divider />
             </div>
           })}

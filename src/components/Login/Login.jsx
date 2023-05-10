@@ -36,7 +36,7 @@ export const Login = () => {
                   </div>
                   <div className='card shadow-lg'>
                     <div className='card-body p-5'>
-                      <h1 className='fs-4 card-title fw-bold mb-4'>Login</h1>
+                      <h1 className='fs-4 card-title fw-bold mb-4'>Iniciar Sesion</h1>
 
                       <form
                         method='POST'
@@ -45,7 +45,7 @@ export const Login = () => {
                       >
                         <div className='mb-3'>
                           <label className='mb-2 text-muted' htmlFor='email'>
-                            E-Mail Address
+                            Correo Electronico
                           </label>
                           <input
                             id='email'
@@ -57,17 +57,17 @@ export const Login = () => {
                             required
 
                           />
-                          <div className='invalid-feedback'>Email is invalid</div>
+                          <div className='invalid-feedback'>Correo Electronico invalido</div>
                         </div>
 
                         <div className='mb-3'>
                           <div className='mb-2 w-100'>
                             <label className='text-muted' htmlFor='password'>
-                              Password
+                              Contraseña
                             </label>
-                            <a href='forgot.html' className='float-end'>
-                              Forgot Password?
-                            </a>
+                            <Link to='/forgot' className='float-end'>
+                              Olvidaste tu contraseña?
+                            </Link>
                           </div>
                           <input
                             id='password'
@@ -79,7 +79,7 @@ export const Login = () => {
                             required
                           />
                           <div className='invalid-feedback'>
-                            Password is required
+                          Contraseña requirida
                           </div>
                         </div>
 
@@ -92,26 +92,26 @@ export const Login = () => {
                               className='form-check-input'
                             />
                             <label htmlFor='remember' className='form-check-label'>
-                              Remember Me
+                              Recordame
                             </label>
                           </div>
                           <button type='submit' className='btn btn-primary ms-auto'>
-                            Login
+                            Ingresar
                           </button>
                         </div>
                       </form>
                     </div>
                     <div className='card-footer py-3 border-0'>
                       <div className='text-center'>
-                        Don't have an account?{" "}
+                        No tenes cuenta?{" "}
                         <Link to='/register' className='text-dark'>
-                          Create One
+                          Crea una
                         </Link>
                       </div>
                     </div>
                     <div className='card-footer py-3 border-0'>
                       <div className='text-center'>
-                        <p>Or Login With Google</p>
+                        <p>O ingresar con Google</p>
                         <button onClick={LoginWithGoogle} id="google-icon"><FcGoogle /></button>
 
                       </div>

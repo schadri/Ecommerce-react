@@ -14,7 +14,7 @@ export const NavBar = () => {
       <div className="left">
         <ul>
           <li><div className="icon_main"><FaRegSnowflake /></div></li>
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="/">Inicio</Link></li>
           
         </ul>
       </div>
@@ -22,7 +22,7 @@ export const NavBar = () => {
         <div className="carrito">
           <li><Link to='/cart' ><CartWidget /></Link></li>
         </div>
-        <div className="login-style">{loginData ? <Profile /> : <Link to="/login">Login</Link>}</div>
+        <div className="login-style">{loginData ? <Profile /> : <Link to="/login">Ingresar</Link>}</div>
       </div>
     </div>
 
