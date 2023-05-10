@@ -5,7 +5,7 @@ import {
   getAuth, 
   signInWithEmailAndPassword, 
   signInWithPopup, 
-  signOut as signOutFirebase
+  createUserWithEmailAndPassword
 } from 'firebase/auth'
 
 const app = firebase.initializeApp({
@@ -26,6 +26,10 @@ export const getActualDate = () => {
 
 export const signInWithEmailAndPasswordFirebase = async (email, password) => {
   return await signInWithEmailAndPassword(auth, email, password);
+}
+
+export const createUserWithEmailAndPasswordFirebase = async (email, password) => {
+  return await createUserWithEmailAndPassword(auth, email, password);
 }
 
 export const LoginWithGooglePopout = async () => {

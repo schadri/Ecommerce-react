@@ -61,3 +61,16 @@ li a {
   margin-top: 50%;
   margin-right: 15px;
 }
+
+
+.login-style a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 18px;
+  margin-top: 10%;
+  width: 100%;
+ 
+
+}

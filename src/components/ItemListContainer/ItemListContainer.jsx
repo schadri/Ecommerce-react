@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import { pedirProductos } from "../../helpers/pedirProductos";
 import { ItemList } from "../itemList/itemList";
-import "./itenlistcontainer.css";
+import "./itemlistcontainer.css";
 import { FaSpinner } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { Ban } from "../Ban/Ban"

@@ -15,14 +15,14 @@ export const NavBar = () => {
         <ul>
           <li><div className="icon_main"><FaRegSnowflake /></div></li>
           <li><Link to="/">Home</Link></li>
-          {loginData ? <></> : <li><Link to="/login">Login</Link></li>}
+          
         </ul>
       </div>
       <div className="right">
         <div className="carrito">
           <li><Link to='/cart' ><CartWidget /></Link></li>
         </div>
-        {loginData && <Profile />}
+        <div className="login-style">{loginData ? <Profile /> : <Link to="/login">Login</Link>}</div>
       </div>
     </div>
 

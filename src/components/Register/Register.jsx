@@ -1,16 +1,20 @@
 import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
-import "./login.css"
+import "./register.css"
 import { FcGoogle } from "react-icons/fc";
 import { FaRegSnowflake } from "react-icons/fa";
-import { Link } from "react-router-dom";
-export const Login = () => {
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+
+export const Register = () => {
+  const navigate = useNavigate();
+
   const {
     email,
     setEmail,
     password,
     setPassword,
-    handleEmailLogin,
+    handleRegister,
     LoginWithGoogle,
     loginData,
   } = useContext(AuthContext);
@@ -20,6 +24,24 @@ export const Login = () => {
       window.location.replace('/')
     }
   }, [loginData])
+
+  useEffect(() => {
+    setEmail("") 
+    setPassword("") 
+  }, [])
+  
+  const submitForm = async (event) => {
+    event.preventDefault();
+    const res = await handleRegister()
+    Swal.fire({
+      icon: res.error ? "error" : "success",
+      title: "Registro",
+      text: res.message,
+    }).then(()=>{
+      navigate('/login')
+      setPassword("")
+    })
+  }
 
   return (
     <div>
@@ -36,12 +58,12 @@ export const Login = () => {
                   </div>
                   <div className='card shadow-lg'>
                     <div className='card-body p-5'>
-                      <h1 className='fs-4 card-title fw-bold mb-4'>Login</h1>
+                      <h1 className='fs-4 card-title fw-bold mb-4'>Register</h1>
 
                       <form
                         method='POST'
                         className='needs-validation'
-                        onSubmit={handleEmailLogin}
+                        onSubmit={submitForm}
                       >
                         <div className='mb-3'>
                           <label className='mb-2 text-muted' htmlFor='email'>
@@ -65,9 +87,6 @@ export const Login = () => {
                             <label className='text-muted' htmlFor='password'>
                               Password
                             </label>
-                            <a href='forgot.html' className='float-end'>
-                              Forgot Password?
-                            </a>
                           </div>
                           <input
                             id='password'
@@ -84,31 +103,19 @@ export const Login = () => {
                         </div>
 
                         <div className='d-flex align-items-center'>
-                          <div className='form-check'>
-                            <input
-                              type='checkbox'
-                              name='remember'
-                              id='remember'
-                              className='form-check-input'
-                            />
-                            <label htmlFor='remember' className='form-check-label'>
-                              Remember Me
-                            </label>
-                          </div>
                           <button type='submit' className='btn btn-primary ms-auto'>
-                            Login
+                            Register
                           </button>
                         </div>
                       </form>
                     </div>
                     <div className='card-footer py-3 border-0'>
                       <div className='text-center'>
-                        Don't have an account?{" "}
-                        <Link to='/register' className='text-dark'>
-                          Create One
+                        Have an account{" "}
+                        <Link to='/login' className='text-dark'>
+                          Login
                         </Link>
-                      </div>
-                    </div>
+                      </div></div>
                     <div className='card-footer py-3 border-0'>
                       <div className='text-center'>
                         <p>Or Login With Google</p>

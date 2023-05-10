@@ -8,7 +8,7 @@ export const CartWidget = () => {
   return (
     <>
     <FaShoppingCart className="carrito"/>
-    <span>{calcularCantidad()}</span>
+    <span className='cantidad'>{calcularCantidad()}</span>
     </>
   )
 }

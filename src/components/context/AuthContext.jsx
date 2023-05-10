@@ -2,7 +2,8 @@ import { createContext, useEffect, useState } from "react";
 import {
   signInWithEmailAndPasswordFirebase,
   LoginWithGooglePopout,
-  signOut
+  signOut,
+  createUserWithEmailAndPasswordFirebase
 } from "../../firebase/config";
 
 
@@ -37,6 +38,16 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const handleRegister = async () => {
+    try {
+      await createUserWithEmailAndPasswordFirebase(email, password);
+      return {error:false, message:"Registro Completado"}
+    } catch (error) {
+      console.error(error);
+      return {error:true, message: error.message}
+    }
+  };
+
   const LoginWithGoogle = async () => {
     const res = await LoginWithGooglePopout();
     setLoginData(res);
@@ -56,6 +67,7 @@ export const AuthProvider = ({ children }) => {
       setEmail,
       setPassword,
       handleEmailLogin,
+      handleRegister,
       LoginWithGoogle,
       logout
     }}>
