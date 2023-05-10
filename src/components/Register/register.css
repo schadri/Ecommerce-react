@@ -1,0 +1,29 @@
+#google-icon {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    text-align: inherit;
+    text-transform: none;
+    font-size: 5vh;
+}
+
+#Icon-Logo{
+    animation: spin 5s linear infinite;
+      font-size: 28px;
+      display: flex;
+      align-items: left;
+      justify-content: center;
+      margin-top: 50%;
+      margin-right: 15px;
+      
+      
+  }
+
+ #bordeado {
+    border: 5px;
+ }
+  

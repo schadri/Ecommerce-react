@@ -1,5 +1,6 @@
 import React from 'react'
 import "./ban.css"
+import { scrollToId } from '../../helpers/scrollToId'
 export const Ban = () => {
   return (
     <div>
@@ -11,9 +12,9 @@ export const Ban = () => {
           <div className='text-white'>
             <h1 className='mb-3' id='winter'>Winter Store</h1>
             <h4 className='mb-3' id='cool'>Le damos una fria bienvenida a nuestra tienda</h4>
-            <a className='btn btn-outline-light btn-lg' id='button-ref' href='#NP' role='button'>
+            <button className='btn btn-outline-light btn-lg' id='button-ref' onClick={()=>scrollToId('NP')}>
               Ver Productos
-            </a>
+            </button>
           </div>
         </div>
       </div>

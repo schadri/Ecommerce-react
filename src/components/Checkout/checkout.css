@@ -2,8 +2,9 @@
     text-decoration: none;
 }
 
-form {
+.checkoutForm {
     height: 60vh;
+
 }
 
 .action-button {

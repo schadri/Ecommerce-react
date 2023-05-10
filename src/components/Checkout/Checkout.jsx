@@ -73,7 +73,7 @@ export const Checkout = () => {
           <h3>Terminar compra</h3>
           <hr />
 
-          <form onSubmit={handleSumbit} className='container mt-3'>
+          <form onSubmit={handleSumbit} className='container mt-3 checkoutForm'>
             <div className='form-group'>
               <label htmlFor=''>Email</label>
               <input
